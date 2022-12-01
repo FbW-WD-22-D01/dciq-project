@@ -100,7 +100,6 @@ POST-Body
 {
   description: "foo",
   question: "12lkfklfelkhf21",
-  user: "12lkfklfelkhf22",
 }
 ```
 

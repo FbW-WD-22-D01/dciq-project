@@ -18,6 +18,6 @@ export async function createQuestion (req, res) {
 /** @type {import("express").RequestHandler} */
 export async function getQuestionById (req, res) {
   const id = req.params.id
-  const question = await Question.findById(id).populate('user', 'name')
+  const question = await Question.findById(id).populate('user', 'name -_id')
   res.status(200).send(question)
 }
