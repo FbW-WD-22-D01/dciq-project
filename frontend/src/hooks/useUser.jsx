@@ -23,7 +23,29 @@ export function UserProvider ({children}) {
   const ctx = {
     data: user,
     loading: loading,
-    register: async () => null,
+    register: async (email, password, name) => {
+      try {
+        const response = await axios.post('/user/register', { email, password, name })
+        setUser(response.data)
+        return {
+          status: response.status
+        }
+      }
+      catch(e) {
+        if(e.response && e.response.status === 400) {
+          const error = e.response.data.message[0] // {name: "wir brauchen einen Namen"}
+          const key = Object.keys(error)[0] // name
+          const message = error[key] // "wir brauchen einen Namen"
+          return {
+            status: e.response.status,
+            payload: message
+          }
+        }
+        return {
+          status: 500
+        }
+      }
+    },
     login: async (email, password) => {
       // gleiches nur andere Schreibweise
       // const response = await axios
@@ -39,13 +61,19 @@ export function UserProvider ({children}) {
       try {
         const response = await axios.post('/user/login', { email, password })
         setUser(response.data)
-        return 200
+        return {
+          status: 200
+        }
       }
       catch(e) {
         if(e.response) {
-          return e.response.status
+          return {
+            status: e.response.status
+          }
         }
-        return 500
+        return {
+          status: 500
+        }
       }
     },
   }

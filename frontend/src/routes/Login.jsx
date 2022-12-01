@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import useUser from '../hooks/useUser'
 import './Login.scss'
 
@@ -8,20 +8,24 @@ export default function Login () {
   const [error, setError] = React.useState(null)
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
+  const [fetching, setFetching] = React.useState(false)
+  const navigate = useNavigate()
 
   const handleSubmit = async e => {
     e.preventDefault()
-    const status = await user.login(email, password)
+    setFetching(true)
+    const result = await user.login(email, password)
 
-    if(status === 200) {
-      alert('logged in')
+    if(result.status === 200) {
+      navigate('/account')
     }
-    if(status === 401) {
+    if(result.status === 401 || result.status === 400) {
       setError('Email oder Passwort falsch')
     }
     else {
       setError('Ein Fehler ist passiert')
     }
+    setFetching(false)
   }
 
   return (
@@ -53,7 +57,7 @@ export default function Login () {
         Ich habe noch keinen Account
       </Link>
 
-      <button>Login</button>
+      <button>{fetching ? 'loading...' : 'Login'}</button>
       {error && <span className='error'>{error}</span>}
     </form>
   )
