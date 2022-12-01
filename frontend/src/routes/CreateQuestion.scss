@@ -1,0 +1,33 @@
+.Create-Question {
+  display: flex;
+  flex-direction: column;
+
+  > label {
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+
+  > input, > textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  > button {
+    margin-top: 50px;
+    padding: 10px 20px;
+    background: steelblue;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  > .error {
+    color: red;
+    margin-top: 5px;
+  }
+}

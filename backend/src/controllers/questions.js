@@ -10,6 +10,7 @@ export function getQuestions () {
 export async function createQuestion (req, res) {
   const question = new Question(req.body)
   question.user = req.user._id
+  question.numAnswers = 0
   await question.save()
   res.status(201).send(question)
 }

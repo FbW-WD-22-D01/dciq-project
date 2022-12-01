@@ -17,7 +17,7 @@ export default function App() {
         <Layout>
           <Routes>
             <Route path='/' element={<Overview/>}/>
-            <Route path='/question/:id' element={<QuestionById/>}/>
+            <Route path='/questions/:id' element={<QuestionById/>}/>
             <Route path='/create-question' element={<CreateQuestion/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/register' element={<Register/>}/>
