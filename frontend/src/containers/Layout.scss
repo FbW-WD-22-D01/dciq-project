@@ -7,12 +7,21 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+
+    > .spanner {
+      flex: 1;
+    }
+
+    > .user {
+      margin-right: 20px;
+    }
   
     > .logo {
       font-size: 40px;
     }
   
-    > button {
+    > a {
+      text-decoration: none;
       padding: 10px 20px;
       border-radius: 5px;
       background: steelblue;

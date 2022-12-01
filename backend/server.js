@@ -19,7 +19,10 @@ mongoose.connect(DB_CONN)
 const app = express()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:3000'
+}))
 app.use(cookieParser())
 
 app.use('/user', user)
@@ -36,7 +39,7 @@ app.use((req, res, next) => {
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
   res.status(err.status || 500).send({
-    message: err.message
+    message: err.message // [{name: "wir brauchen einen Namen"}]
   })
 })
 
