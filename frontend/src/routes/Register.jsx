@@ -1,7 +1,12 @@
 import {Link} from 'react-router-dom'
+import useUser from '../hooks/useUser'
 import './Register.scss'
 
 export default function Register () {
+  const user = useUser()
+
+  user.data
+
   return (
     <form className='Register'>
       <h2>Registrieren</h2>
