@@ -1,4 +1,5 @@
 import httpErrors from 'http-errors'
+import Question from '../models/Question.js'
 
 /** @type {import("express").RequestHandler} */
 export function getQuestions () {
@@ -6,8 +7,11 @@ export function getQuestions () {
 }
 
 /** @type {import("express").RequestHandler} */
-export function createQuestion () {
-  throw httpErrors.NotImplemented()
+export async function createQuestion (req, res) {
+  const question = new Question(req.body)
+  question.user = req.user._id
+  await question.save()
+  res.status(201).send(question)
 }
 
 /** @type {import("express").RequestHandler} */

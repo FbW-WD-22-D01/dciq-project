@@ -125,7 +125,6 @@ POST-Body
   title: "foo",
   description: "foo",
   category: "JS",
-  user: "12lkfklfelkhf21"
 }
 ```
 
