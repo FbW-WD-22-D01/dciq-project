@@ -197,7 +197,7 @@ Response-Body
 }
 ```
 
-### GET /answers/answered-by-me
+### GET /answers/created-by-me
 
 Response-Body
 
