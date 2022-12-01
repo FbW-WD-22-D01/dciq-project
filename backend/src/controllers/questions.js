@@ -16,6 +16,8 @@ export async function createQuestion (req, res) {
 }
 
 /** @type {import("express").RequestHandler} */
-export function getQuestionById () {
-  throw httpErrors.NotImplemented()
+export async function getQuestionById (req, res) {
+  const id = req.params.id
+  const question = await Question.findById(id).populate('user', 'name')
+  res.status(200).send(question)
 }
