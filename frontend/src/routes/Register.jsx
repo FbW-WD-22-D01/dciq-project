@@ -12,6 +12,12 @@ export default function Register () {
   const [fetching, setFetching] = React.useState(false)
   const navigate = useNavigate()
 
+  React.useEffect(() => {
+    if(user.data && !user.loading) {
+      navigate('/account')
+    }
+  }, [user])
+
   const handleSubmit = async e => {
     e.preventDefault()
     setFetching(true)
