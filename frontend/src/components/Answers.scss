@@ -1,0 +1,52 @@
+.Answers {
+  > .list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0;
+
+    > .answer {
+      display: flex;
+
+      > .description {
+        padding: 20px;
+        background: whitesmoke;
+        flex: 5;
+      }
+
+      > .user {
+        flex: 1;
+        padding: 20px;
+        text-align: right;
+      }
+    }
+  }
+
+
+  > form {
+    display: flex;
+    flex-direction: column;
+
+    > textarea {
+      margin-top: 50px;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    > button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      max-width: 200px;
+      border: none;
+      border-radius: 5px;
+      background: steelblue;
+      color: white;
+      font-size: 18px;
+    }
+
+    > .error {
+      margin-top: 5px;
+      color: red;
+    }
+  }
+}

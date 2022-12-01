@@ -7,6 +7,7 @@ import auth from '../lib/middlewares/auth.js'
 const app = express.Router()
 
 app.get('/', controller.getAnswers)
+// /answers?questionId=123
 app.post('/', auth, validation.createAnswer, controller.createAnswer)
 app.get('/created-by-me', controller.getAnswersCreatedByMe)
 

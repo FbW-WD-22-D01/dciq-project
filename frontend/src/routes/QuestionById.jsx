@@ -1,6 +1,7 @@
 import React from 'react'
 import {useParams} from 'react-router'
 import axios from 'axios'
+import Answers from '../components/Answers'
 import './QuestionById.scss'
 
 export default function QuestionById () {
@@ -11,6 +12,8 @@ export default function QuestionById () {
     axios.get('/questions/'+id).then(response => setQuestion(response.data))
   }, [id])
 
+  
+
   if(!question) return null
   
   return (
@@ -20,6 +23,9 @@ export default function QuestionById () {
       <div className='user-name'>{question.user.name}</div>
 
       <hr/>
+
+      <Answers questionId={id}/>
+      
     </div>
   )
 }
