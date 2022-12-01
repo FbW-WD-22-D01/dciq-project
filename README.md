@@ -217,3 +217,12 @@ Response-Body
   }
 ]
 ```
+
+
+## Workflow
+
+- Für jede Aufgabe erstellen wir uns einen eigenen Branch `git branch -b <branch-name>`
+- Wir erledigen alle Aufgaben in diesem Branch
+- Wir erstellen einen Pull-Request auf Github (es erscheint ein "create pull-request" button sobald man den branch gepushed hat)
+- Wir wählen jemanden aus der das ganze korrigieren soll (eigenes Team-Mitglied). 
+- Dieser merged dann den Branch in den main wenn alles passt
